@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    float speed = 8f;
+    float speed = 3f;
     [SerializeField] GameObject bullets;
     [SerializeField] Transform bulletsPos;
 
     [SerializeField] GameObject coin;
+
+    [SerializeField] EnemyHealthController enemyHealthController;
+    float damage = 0.3f;
+
+    float enemyHealth = 1f;
 
     private void Start()
     {
@@ -31,10 +36,14 @@ public class EnemyMovement : MonoBehaviour
         if (collision.gameObject.GetComponent<BulletController>() != null)
         {
             Vector3 Pos = gameObject.transform.position;
-            Instantiate(coin, Pos, Quaternion.identity);
-            Destroy(gameObject);
+            enemyHealth -= damage;
+            enemyHealthController.setEnemyHealth(damage);
+            if(enemyHealth <= 0)
+            {
+                Instantiate(coin, Pos, Quaternion.identity);
+                Destroy(gameObject);
+            }
             
-
         }
 
     }

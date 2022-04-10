@@ -5,7 +5,6 @@ using UnityEngine;
 public class CoinController : MonoBehaviour
 {
     float speed = 05f;
-    [SerializeField]ScoreController scoreController;
     int coinScore = 10;
     private void Update()
     {
@@ -27,7 +26,6 @@ public class CoinController : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<PlayerController>() != null)
         {
-            scoreController.ScoreIncrement();
             Destroy(gameObject);
         }
     }

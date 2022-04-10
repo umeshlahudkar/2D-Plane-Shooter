@@ -8,11 +8,20 @@ public class EnemyController : MonoBehaviour
     [SerializeField] GameObject Enemy2;
     private void Start()
     {
-        InvokeRepeating("InstantiateEnemy1", 2f, 1f);
-        InvokeRepeating("InstantiateEnemy2", 2f, 1.5f);
+        InvokeRepeating("InstantiateEnemy1", 2f, 4f);
+        InvokeRepeating("InstantiateEnemy2", 2f, 2.5f);
     }
 
-    
+    private void Update()
+    {
+        if (PlayerController.isGameOver)
+        {
+            this.enabled = false;
+            CancelInvoke("InstantiateEnemy1");
+            CancelInvoke("InstantiateEnemy2");
+        }
+    }
+
 
     void InstantiateEnemy1()
     {

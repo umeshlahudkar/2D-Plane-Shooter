@@ -9,8 +9,12 @@ public class BackGroundController : MonoBehaviour
 
     private void Update()
     {
-       Vector2 offset = meshRenderer.material.mainTextureOffset;
-       offset.y += speed * Time.deltaTime;
-       meshRenderer.material.mainTextureOffset = offset;
+        if (PlayerController.isGameOver == false) 
+        {
+            Vector2 offset = meshRenderer.material.mainTextureOffset;
+            offset.y += speed * Time.deltaTime;
+            meshRenderer.material.mainTextureOffset = offset;
+        }
+      
     }
 }

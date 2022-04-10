@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField]float verticalInput, horrizontalInput;
+    float verticalInput, horrizontalInput;
+    int playerDamage = 5;
+    public static bool isGameOver = false;
     [SerializeField]float speed;
 
     [SerializeField] GameObject bulletPos1;
@@ -12,9 +14,14 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] GameObject bullet;
 
+    [SerializeField] HealthBarController healthBarController;
+    [SerializeField] GameObject gameOverScreen;
+
+   
     private void Start()
     {
          InvokeRepeating("instantiateBullet", 2, 0.3f);
+         isGameOver = false;
     }
     private void Update()
     {
@@ -30,6 +37,14 @@ public class PlayerController : MonoBehaviour
 
         PlayerClamp();
 
+        if(healthBarController.PlayerHealth <= 0)
+        {
+            gameOverScreen.SetActive(true);
+            isGameOver = true;
+            this.enabled = false;
+            CancelInvoke("instantiateBullet");
+        }
+
 
 
     }
@@ -39,7 +54,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<EnemyBulletMovement>() != null)
         {
-            Debug.Log(" Player Died");
+            healthBarController.HealthDecrement(playerDamage);
         }
     }
 
