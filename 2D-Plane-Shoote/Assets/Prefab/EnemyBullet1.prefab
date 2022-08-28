@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6517576965306085058}
   - component: {fileID: 7440183164242644204}
-  - component: {fileID: 4985889723692929494}
   - component: {fileID: 5269450924423003820}
+  - component: {fileID: 3989413816200533418}
   m_Layer: 0
   m_Name: EnemyBullet1
   m_TagString: Untagged
@@ -84,18 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4985889723692929494
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9196246477831779857}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6e8755c3a07e9e4e85ffae20ee7a138, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!70 &5269450924423003820
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -112,3 +100,17 @@ CapsuleCollider2D:
   m_Offset: {x: -0.044884697, y: -0.0037404299}
   m_Size: {x: 0.30549964, y: 1.0380957}
   m_Direction: 0
+--- !u!114 &3989413816200533418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9196246477831779857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a320151756274041885d171430265db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 15
+  bulletDamage: 10
